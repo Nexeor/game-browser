@@ -1,26 +1,38 @@
 {
   "compilerOptions": {
+    // Output location for build information
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
+    // Target and module settings
+    "target": "ESNext", // Specify ECMAScript target version
+    "module": "ESNext", // Specify module code generation
+    "useDefineForClassFields": true, // Use `define` semantics for class fields
+    "lib": ["ES2020", "DOM", "DOM.Iterable"], // Specify library files to be included in the compilation
+    "skipLibCheck": true, // Skip type checking of declaration files
 
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    // Module resolution and bundling
+    "moduleResolution": "bundler", // Resolve modules for a bundler
+    "allowImportingTsExtensions": true, // Allow imports with .ts extensions
+    "isolatedModules": true, // Ensure each file can be safely transpiled without relying on others
+    "moduleDetection": "force", // Enforce strict module detection rules
+    "noEmit": true, // Prevent emitting output files
+
+    // JSX and React settings
+    "jsx": "react-jsx", // Use the new JSX transform for React
+
+    // Linting and type-checking rules
+    "strict": true, // Enable strict type checking
+    "noUnusedLocals": true, // Error on unused local variables
+    "noUnusedParameters": true, // Error on unused function parameters
+    "noFallthroughCasesInSwitch": true, // Prevent fallthrough in switch statements
+    "noUncheckedSideEffectImports": true, // Disallow imports with unchecked side effects
+
+    // Path mapping
+    "paths": {
+      "@/*": ["./src/*"] // Map `@/` to the `src` directory for cleaner imports
+    }
   },
+
+  // Include the source directory for TypeScript compilation
   "include": ["src"]
 }
