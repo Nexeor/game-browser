@@ -10,10 +10,11 @@ import {
 } from "@chakra-ui/react";
 
 interface Props {
+  selectedgenre: Genre | null;
   onSelectGenre: (genre: Genre) => void;
 }
 
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedgenre }: Props) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null; // Don't render anything if error fetching
@@ -32,6 +33,7 @@ const GenreList = ({ onSelectGenre }: Props) => {
             <Button
               variant="link"
               fontSize="lg"
+              fontWeight={selectedgenre?.id === genre.id ? "bold" : "normal"}
               onClick={() => onSelectGenre(genre)}
             >
               {genre.name}
